@@ -6,15 +6,22 @@ import { Image } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { TouchableOpacity } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
+import AutoPlayVideo from './Video'
+import { PostInterface } from '@/interfaces'
+import { imageUrls } from '@/utils'
 
+interface PostProps{
+postData:PostInterface
+index:number
+}
+const Post = ({postData,index}:PostProps) => {
 
-const Post = () => {
-
-    
+    console.log(index)
   return (
 
     <>
-    <ThemedView style={{height:560}}>
+    <ThemedView style={{minHeight:650,position:"relative"}}>
+   
         <ThemedView  style={{height:60,justifyContent:'space-between',flexDirection:"row",alignItems:"center"}}>
 
         <TouchableOpacity activeOpacity={0.8}  style={{justifyContent:"center",alignItems:"center",flexDirection:"row",marginLeft:7}} >
@@ -40,12 +47,17 @@ const Post = () => {
       
       </ThemedView>
       </ThemedView>
-      <Image
+
+
+      {postData.images!==null?<Image
         style={{width:"auto",height:450}}
         source={{
-          uri: 'https://scontent.cdninstagram.com/v/t51.29350-15/450314095_1157002175423270_5398731110245667859_n.webp?stp=dst-jpg_e35&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xNDQweDE0NDAuc2RyLmYyOTM1MCJ9&_nc_ht=scontent.cdninstagram.com&_nc_cat=102&_nc_ohc=toKTUhTnOTIQ7kNvgGEvoCN&edm=APs17CUBAAAA&ccb=7-5&ig_cache_key=MzQwNzM3MTM0NTc3NDc1NjQ1OQ%3D%3D.2-ccb7-5&oh=00_AYBKAzdkI3GxGjjmTdkaOjStjeUTWa00SBI5EQduMhV8QQ&oe=66A8358D&_nc_sid=10d13b',
+          uri: postData?.images[0]?.uri,
         }}
-      />
+      />:<AutoPlayVideo/>}
+      
+
+  
 
 <ThemedView  style={{height:50,justifyContent:'space-between',flexDirection:"row",alignItems:"center"}}>
     <ThemedView style={{flexDirection:"row"}}>
@@ -59,7 +71,18 @@ const Post = () => {
       </ThemedView>
       </ThemedView>
 
+      <ThemedView style={{minHeight:0,paddingLeft:10}}>
+      <ThemedText style={{fontSize:16,fontWeight:"600"}}>{postData.likes.length} likes</ThemedText>
+
       
+
+      <ThemedText style={{overflow:"visible",minHeight:0,fontSize:15}}>{<Text  style={{fontSize:16,fontWeight:"700"}}>The Wire</Text>} {postData.desc} </ThemedText>
+      <TouchableOpacity>
+       <ThemedText style={{color:"gray",fontSize:15}}>View all {postData.comments.length} comments</ThemedText>
+       </TouchableOpacity>
+       <ThemedText style={{color:"gray",fontSize:14}}>{postData.uploadedAt}</ThemedText>
+      
+     </ThemedView>
     </ThemedView>
  
     </>
