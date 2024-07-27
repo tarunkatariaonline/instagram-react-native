@@ -30,7 +30,7 @@ const Reelvideo = ({index,selectedIndex}:ReelVideoProps) => {
 
 <ThemedView style={{position:"relative",height:Dimensions.get("window").height,justifyContent:"center"}}>
 
-<View style={{position:"absolute",bottom:20,zIndex:30,right:0,width:"100%",flexDirection:"row",alignItems:"flex-end"}}>
+<View style={{position:"absolute",bottom:40,zIndex:30,right:0,width:"100%",flexDirection:"row",alignItems:"flex-end"}}>
   
       <View style={{width:"85%",padding:10}}>
        
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   },
   video: {
     width: '100%',
-    height:"99%",
+    height:"100%",
   },
 });
 

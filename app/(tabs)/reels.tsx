@@ -43,7 +43,7 @@ setSelectedIndex(0)
     },
   ];
   return (
-    <ThemedView style={{height:"100%"}}>
+    <ThemedView >
       
      
      <FlatList onScroll={(e)=>{
@@ -53,9 +53,11 @@ setSelectedIndex(0)
     
 
      }}
+     pagingEnabled
+     showsVerticalScrollIndicator={false}
         data={DATA}
        
-        renderItem={({item,index}) => <View style={{height:Dimensions.get("window").height}}><Reelvideo index={index} selectedIndex={selectedIndex} /></View>}
+        renderItem={({item,index}) => <View style={{height:Dimensions.get("window").height,width:Dimensions.get('window').width,justifyContent:"center"}}><Reelvideo index={index} selectedIndex={selectedIndex} /></View>}
         keyExtractor={item => item.id}
       />
     </ThemedView>
