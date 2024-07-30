@@ -14,12 +14,13 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
+       
         
       }}>
       <Tabs.Screen
         name="index"
         options={{
-        
+          tabBarShowLabel:false,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
           ),
@@ -30,6 +31,8 @@ export default function TabLayout() {
         name="search"
         options={{
           title: 'Search',
+          tabBarShowLabel:false,
+          
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'search' : 'search-outline'} color={color} />
           ),
@@ -38,8 +41,12 @@ export default function TabLayout() {
 
 <Tabs.Screen
         name="create"
+        
         options={{
           title: 'Create',
+          
+          tabBarStyle: { display: 'none' },
+          tabBarShowLabel:false,
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'add-sharp' : 'add-circle-outline'} color={color} />
           ),
@@ -50,7 +57,7 @@ export default function TabLayout() {
         name="reels"
         options={{
           title: 'reels',
-          
+          tabBarShowLabel:false,
           tabBarIcon: ({ color, focused }) => (
           focused? <Image
           style={{height:20,width:20}}
@@ -72,6 +79,8 @@ export default function TabLayout() {
         name="profile"
         options={{
           title: 'Profile',
+          tabBarShowLabel:false,
+          
           
           tabBarIcon: ({ color, focused }) => (
           focused? <Image

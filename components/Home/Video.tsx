@@ -5,16 +5,17 @@ import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import {videoUrl} from '../../utils'
 import { ThemedView } from '../ThemedView';
-const AutoPlayVideo = () => {
-    const [mute,setMute] = useState(true)
+
+interface AutoPlayVideo {
+  index:number,
+  selectedIndex:number
+}
+const AutoPlayVideo = ({index,selectedIndex}:AutoPlayVideo) => {
+    const [mute,setMute] = useState(false)
   const video = useRef<Video>(null);
   const [status, setStatus] = useState({});
 
-  useEffect(() => {
-    if (video.current) {
-      video.current.playAsync();
-    }
-  }, []);
+
 
   return (
  <>
@@ -32,7 +33,8 @@ const AutoPlayVideo = () => {
         // useNativeControls
         resizeMode={"cover" as any}
         isLooping
-        isMuted={(mute)?true:false}
+        isMuted={((index!=selectedIndex)||(mute==true))?true:false}
+        shouldPlay={(selectedIndex==index)?true:false}
         
         // onPlaybackStatusUpdate={status => setStatus(() => status)}
       />

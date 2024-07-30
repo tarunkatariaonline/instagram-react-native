@@ -28,9 +28,9 @@ const Reelvideo = ({index,selectedIndex}:ReelVideoProps) => {
   return (
  <>
 
-<ThemedView style={{position:"relative",height:Dimensions.get("window").height,justifyContent:"center"}}>
+<ThemedView style={{position:"relative",justifyContent:"center"}}>
 
-<View style={{position:"absolute",bottom:40,zIndex:30,right:0,width:"100%",flexDirection:"row",alignItems:"flex-end"}}>
+<View style={{position:"absolute",bottom:20,zIndex:30,right:0,width:"100%",flexDirection:"row",alignItems:"flex-end"}}>
   
       <View style={{width:"85%",padding:10}}>
        
@@ -81,7 +81,7 @@ const Reelvideo = ({index,selectedIndex}:ReelVideoProps) => {
      
       </TouchableOpacity>
 
-      <TouchableOpacity style={{alignItems:"center",marginBottom:10,paddingRight:10}} >
+      <TouchableOpacity style={{alignItems:"center",marginBottom:5,paddingRight:10}} >
       <Image
         style={{height:28,width:28,borderRadius:5,borderColor:"white",borderWidth:1}}
         source={{
@@ -117,13 +117,13 @@ const Reelvideo = ({index,selectedIndex}:ReelVideoProps) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+   
     justifyContent: 'center',
     alignItems: 'center',
   },
   video: {
     width: '100%',
-    height:"100%",
+    height:Dimensions.get("window").height,
   },
 });
 

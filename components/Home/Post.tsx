@@ -13,10 +13,11 @@ import { imageUrls } from '@/utils'
 interface PostProps{
 postData:PostInterface
 index:number
+selectedIndex:any
 }
-const Post = ({postData,index}:PostProps) => {
+const Post = ({postData,index,selectedIndex}:PostProps) => {
 
-    console.log(index)
+    // console.log(index)
   return (
 
     <>
@@ -54,7 +55,7 @@ const Post = ({postData,index}:PostProps) => {
         source={{
           uri: postData?.images[0]?.uri,
         }}
-      />:<AutoPlayVideo/>}
+      />:<AutoPlayVideo index={index} selectedIndex={selectedIndex}/>}
       
 
   
